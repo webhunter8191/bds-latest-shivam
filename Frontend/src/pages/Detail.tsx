@@ -284,7 +284,7 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import * as apiClient from "./../api-client";
-import { AiFillStar } from "react-icons/ai";
+// import { AiFillStar } from "react-icons/ai";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import GuestInfoForm from "../forms/GuestInfoForm/GuestInfoForm";
 import Slider from "react-slick";
@@ -292,7 +292,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Custom Next Arrow Component
-const NextArrow = (props) => {
+const NextArrow = (props: { onClick: any; }) => {
   const { onClick } = props;
   return (
     <button
@@ -306,7 +306,7 @@ const NextArrow = (props) => {
 };
 
 // Custom Prev Arrow Component
-const PrevArrow = (props) => {
+const PrevArrow = (props: { onClick: any; }) => {
   const { onClick } = props;
   return (
     <button
@@ -342,8 +342,8 @@ const Detail = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow onClick={undefined} />,
+    prevArrow: <PrevArrow onClick={undefined} />,
   };
 
   return (
@@ -351,12 +351,12 @@ const Detail = () => {
       {/* Hotel Header */}
       <div className="flex flex-col items-start gap-4">
         <div className="flex items-center gap-1">
-          {Array.from({ length: hotel.starRating }).map((_, index) => (
+          {/* {Array.from({ length: hotel.starRating }).map((_, index) => (
             <AiFillStar
               key={index}
               className="fill-yellow-400 text-xl transition transform hover:scale-125"
             />
-          ))}
+          ))} */}
           <span className="text-gray-500 text-sm">{hotel.type}</span>
         </div>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-800 animate-fadeIn">
@@ -388,7 +388,7 @@ const Detail = () => {
               About the Hotel
             </h2>
             <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-              {hotel.description}
+              {/* {hotel.description} */}
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptate exercitationem placeat a. Provident quibusdam cum nihil soluta qui, eveniet maiores. Aliquid consectetur, sint aliquam quam excepturi deserunt a esse magnam at tenetur sit impedit corrupti recusandae sequi doloremque accusamus natus repellendus provident aperiam enim quos eveniet molestias. Rerum iste, et ipsam quidem ratione consequuntur totam! Labore esse culpa dolor molestiae odio, reprehenderit temporibus corporis blanditiis aspernatur, ipsum voluptates, dolorem harum quaerat recusandae doloribus molestias quos minima ullam corrupti iure? Adipisci voluptate beatae eos at repellendus a recusandae dolorem dolor, nihil nisi, libero obcaecati fugiat minima ipsa exercitationem, totam deleniti corporis dignissimos? Ad vel expedita, minima maxime laborum iure, vitae explicabo excepturi hic officiis non. Aliquid ratione excepturi animi dolorem. Nam, magnam deserunt numquam perferendis perspiciatis, quo incidunt eos expedita dolores minus amet reprehenderit omnis ex facilis libero illo tenetur, delectus ipsum at distinctio voluptatem? Ut perspiciatis voluptas perferendis voluptatibus repellendus asperiores, aut ducimus impedit voluptatem, accusamus incidunt delectus amet quo? Unde beatae nisi ullam rerum facere saepe magnam incidunt libero dignissimos, tempore esse cum. Tempore assumenda, illum iste ducimus quisquam esse eos officia earum, dolorem fugiat placeat aut corrupti distinctio a, magni maiores necessitatibus numquam labore quibusdam sed! Deserunt autem minima natus veniam. Id, qui modi! Vel sit labore amet omnis officia inventore impedit officiis nisi aspernatur quidem, commodi cum vitae veniam voluptas laudantium non quisquam aut maxime! Incidunt, voluptatibus eaque veniam architecto, pariatur maxime molestias nostrum sapiente neque ea, aliquam aspernatur. Fuga dolor sequi dicta perspiciatis, officia magnam autem, a unde in natus magni quos officiis eaque ipsa blanditiis asperiores voluptatem doloremque nesciunt alias. Omnis atque consequuntur labore iure asperiores sed sequi unde minima ad enim sapiente, magni nesciunt quisquam id maiores laborum autem modi porro minus. At odio sapiente vero dolor amet deserunt. Doloribus quis dolor illum aut repellat excepturi provident voluptatum, ab accusantium tenetur totam assumenda deleniti quibusdam veniam dignissimos voluptatibus ratione explicabo esse quasi est repellendus laboriosam! Culpa, architecto ratione vero blanditiis cumque et voluptate animi dolores porro assumenda est! Quod porro ratione, inventore repellat distinctio quidem quos doloribus magnam nulla ex blanditiis voluptatibus fugit rerum error labore! Et molestias cupiditate dicta nulla sequi autem, quod asperiores recusandae eius ratione quas architecto sunt est corrupti sint, porro esse voluptates aliquid saepe laborum vitae consectetur totam beatae. Sint eum vitae error, culpa praesentium nemo iusto quo at harum mollitia porro, optio eaque alias adipisci ipsam tempore. Minus consequatur praesentium reprehenderit libero non iusto recusandae quia quisquam laborum deleniti ipsa alias, voluptas ex mollitia? Rerum, unde ab odit velit eveniet omnis iusto quibusdam enim corporis saepe doloremque cum dicta voluptas? Rem aut culpa atque tempore, rerum, aliquam temporibus id natus eum consequuntur aspernatur obcaecati quas voluptatum explicabo, doloremque consequatur? Aliquam saepe sed repudiandae quibusdam reiciendis dolor. Debitis necessitatibus rerum accusantium natus iste odit unde repellendus perferendis, eveniet suscipit nobis velit cum fugiat optio? Culpa eaque reprehenderit consequuntur commodi molestiae nemo excepturi eos ut autem. Voluptatum velit labore eaque sunt rerum, eveniet ullam deserunt dolores necessitatibus nisi iure?
             </p>
           </div>

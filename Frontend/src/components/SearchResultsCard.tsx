@@ -82,7 +82,7 @@
 
 import { Link } from "react-router-dom";
 import { HotelType } from "../../../backend/src/shared/types";
-import { AiFillStar } from "react-icons/ai";
+// import { AiFillStar } from "react-icons/ai";
 
 type Props = {
   hotel: HotelType;
@@ -175,9 +175,9 @@ const SearchResultsCard = ({ hotel }: Props) => {
     <div>
       <div className="flex items-center gap-2 mb-2">
         <span className="flex text-yellow-400">
-          {Array.from({ length: hotel.starRating }).map((_, index) => (
+          {/* {Array.from({ length: hotel.starRating }).map((_, index) => (
             <AiFillStar key={index} />
-          ))}
+          ))} */}
         </span>
         <span className="text-sm text-gray-500 capitalize">
           {hotel.type}
@@ -194,7 +194,7 @@ const SearchResultsCard = ({ hotel }: Props) => {
     {/* Hotel Description */}
     <div>
       <p className="text-gray-600 line-clamp-4 mb-4 text-sm md:text-base">
-        {hotel.description}
+        {/* {hotel.description} */}
       </p>
     </div>
 

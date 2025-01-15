@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { PaymentIntentResponse, UserType } from "../../../../backend/src/shared/types";
+import { UserType } from "../../../../backend/src/shared/types";
 import { useSearchContext } from "../../contexts/SearchContext";
 import { useParams } from "react-router-dom";
 import { useMutation } from "react-query";
@@ -18,8 +18,8 @@ export type BookingFormData = {
   lastName: string;
   email: string;
   roomCount: number;
-  checkIn: string;
-  checkOut: string;
+  checkIn: Date;
+  checkOut: Date;
   hotelId: string;
   paymentIntentId: string;
   totalCost: number;
@@ -41,7 +41,7 @@ const BookingForm = ({ currentUser, pricepernight }: Props) => {
       showToast({ message: "Booking Saved!", type: "SUCCESS" });
     },
     onError: () => {
-      showToast({ message: "Error saving booking", type: "ERROR" });
+      // showToast({ message: "Error saving booking", type: "ERROR" });
     },
   });
 
@@ -51,8 +51,8 @@ const BookingForm = ({ currentUser, pricepernight }: Props) => {
       lastName: currentUser.lastName,
       email: currentUser.email,
       roomCount: search.roomCount,
-      checkIn: search.checkIn.toISOString(),
-      checkOut: search.checkOut.toISOString(),
+      checkIn: search.checkIn,
+      checkOut:search.checkOut ,
       hotelId: hotelId,
       totalCost: pricepernight * search.roomCount,
       

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 5174",
+    "dev": "vite ",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -12,6 +12,7 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^2.4.0",
     "@stripe/stripe-js": "^2.2.1",
+    "helmet": "^8.0.0",
     "razorpay": "^2.9.5",
     "react": "^18.2.0",
     "react-datepicker": "^4.24.0",
