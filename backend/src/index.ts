@@ -25,8 +25,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
+    origin: process.env.FRONTEND_URL, // Allow specific origin
+    credentials: true, // Allow cookies and other credentials
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Requested-With',
+      'Accept',
+    ], // List of allowed headers
   })
 );
 
@@ -42,6 +48,6 @@ app.get("*", (req: Request, res: Response) => {
   // res.sendFile(path.join(__dirname, "../../Frontend/dist/index.html"));
 });
 
-app.listen(8000, () => {
+app.listen(7000, () => {
   console.log("server running on localhost:8000");
 });
