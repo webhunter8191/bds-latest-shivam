@@ -23,27 +23,48 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL, // Allow specific origin
-    credentials: true, // Allow cookies and other credentials
-    allowedHeaders: [
-      'Content-Type',
-      'Authorization',
-      'X-Requested-With',
-      'Accept',
-    ], // List of allowed headers
-  })
-);
-const corsOptions = {
-  origin: process.env.FRONTEND_URL,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // If you need to send cookies
-};
+// app.use(
+//   cors({
+//     origin: process.env.FRONTEND_URL, // Allow specific origin
+//     credentials: true, // Allow cookies and other credentials
+//     allowedHeaders: [
+//       'Content-Type',
+//       'Authorization',
+//       'X-Requested-With',
+//       'Accept',
+//     ], // List of allowed headers
+//   })
+// );
+// const corsOptions = {
+//   origin: process.env.FRONTEND_URL,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   credentials: true, // If you need to send cookies
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // app.use(express.static(path.join(__dirname, "../../Frontend/dist")));
+
+
+app.options(
+  "*",
+  cors({
+    origin: ["https://bds-rooms-frontend.onrender.com/"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+    preflightContinue: true,
+  })
+);
+app.use(
+  cors({
+    origin: ["https://bds-rooms-frontend.onrender.com/"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+    maxAge: 86400,
+  })
+);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -56,5 +77,5 @@ app.get("*", (req: Request, res: Response) => {
 });
 
 app.listen(7000, () => {
-  console.log("server running on localhost:8000");
+  console.log("server running on localhost:7000");
 });
