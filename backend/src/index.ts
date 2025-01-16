@@ -48,6 +48,6 @@ app.get("*", (req: Request, res: Response) => {
   // res.sendFile(path.join(__dirname, "../../Frontend/dist/index.html"));
 });
 
-app.listen(3000, () => {
+app.listen(7000, () => {
   console.log("server running on localhost:8000");
 });
