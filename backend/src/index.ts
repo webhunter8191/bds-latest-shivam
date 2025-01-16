@@ -49,20 +49,22 @@ app.use(express.urlencoded({ extended: true }));
 app.options(
   "*",
   cors({
-    origin: ["https://bds-rooms-frontend.onrender.com/"],
+    origin: ["https://bds-rooms-frontend.onrender.com"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
     preflightContinue: true,
+    
   })
 );
 app.use(
   cors({
-    origin: ["https://bds-rooms-frontend.onrender.com/"],
+    origin: ["https://bds-rooms-frontend.onrender.com"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
     maxAge: 86400,
+    
   })
 );
 
