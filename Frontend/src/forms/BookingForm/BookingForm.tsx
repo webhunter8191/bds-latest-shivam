@@ -222,7 +222,7 @@
 
 
 import { useForm } from "react-hook-form";
-import { PaymentIntentResponse, UserType } from "../../../../backend/src/shared/types";
+import {  UserType } from "../../../../backend/src/shared/types";
 import { useSearchContext } from "../../contexts/SearchContext";
 import { useParams } from "react-router-dom";
 import { useMutation } from "react-query";
@@ -515,7 +515,7 @@ const BookingForm = ({ currentUser, pricepernight }: Props) => {
         throw new Error("Error creating booking");
       }
 
-      const { bookingId } = bookingResponse.data;
+      // const { bookingId } = bookingResponse.data;
 
       const paymentRes = await fetch(`${API_BASE_URL}/api/payment/order`, {
         method: "POST",
