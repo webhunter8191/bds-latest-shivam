@@ -35,15 +35,15 @@ app.use(express.urlencoded({ extended: true }));
 //     ], // List of allowed headers
 //   })
 // );
-// const corsOptions = {
-//   origin: process.env.FRONTEND_URL,
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   credentials: true, // If you need to send cookies
-// };
+const corsOptions = {
+  origin: process.env.FRONTEND_URL,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // If you need to send cookies
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-// app.use(express.static(path.join(__dirname, "../../Frontend/dist")));
+app.use(express.static(path.join(__dirname, "../../Frontend/dist")));
 
 
 // app.options(
