@@ -46,27 +46,27 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, "../../Frontend/dist")));
 
 
-app.options(
-  "*",
-  cors({
-    origin: ["https://bds-rooms-frontend.onrender.com"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-    preflightContinue: true,
+// app.options(
+//   "*",
+//   cors({
+//     origin: ["https://bds-rooms-frontend.onrender.com"],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//     preflightContinue: true,
     
-  })
-);
-app.use(
-  cors({
-    origin: ["https://bds-rooms-frontend.onrender.com"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-    maxAge: 86400,
+//   })
+// );
+// app.use(
+//   cors({
+//     origin: ["https://bds-rooms-frontend.onrender.com"],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//     maxAge: 86400,
     
-  })
-);
+//   })
+// );
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -75,7 +75,7 @@ app.use("/api/hotels", hotelRoutes);
 app.use("/api/my-bookings", bookingRoutes);
 
 app.get("*", (req: Request, res: Response) => {
-  // res.sendFile(path.join(__dirname, "../../Frontend/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../../Frontend/dist/index.html"));
 });
 
 app.listen(7000, () => {
